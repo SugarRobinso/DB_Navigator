@@ -1,0 +1,27 @@
+Descrizione generale:
+
+Si vuole sviluppare una applicazione per la navigazione all’interno di database relazionali.
+A partire da una tabella del db si deve poter cliccare su un record della tabella e vedere le tabelle ad esso collegate tramite foreign
+key. Quindi, si deve poter navigare verso i record di tali tabella che linkano il record iniziale.
+Si devono poter gestire una a più connessioni ai db. Per ogni connessione di specifica l’ip o il dns del server del db, il nome utente e
+la password.
+L’applicazione sviluppata può non essere una applicazione online.
+
+
+Requisiti minimi:
+  • Una Docker per il lato server
+
+Requisiti premiali:
+  • Docker per i lato client per simulare diversi dispositivi
+
+
+Steps:
+  Backend:
+    1 - Crea server che riceve richieste da client
+    - Crea sistema API REST-full CRUD
+    - Crea sistema che gestisce connessioni multiple ai database
+    - Crea sistema comunicazione socket
+  Frontend:
+    1 - Crea client che invia richieste ad un server
+    - Crea sistema di gestione eventi per nuove richieste
+    - Crea interfaccia grafica

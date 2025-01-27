@@ -1,0 +1,199 @@
+@font-face {
+  font-family: "Inter Regular";
+  src: url("./fonts/Inter-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter Medium";
+  src: url("./fonts/Inter-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter Bold";
+  src: url("./fonts/Inter-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter Light";
+  src: url("./fonts/Inter-Light.ttf") format("truetype");
+}
+
+* {
+  font-family: "Inter Regular", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  scrollbar-width: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  height: 100vh;
+  /* background-color: #263238; */
+  /* color: #CFD8DC; */
+}
+
+html, p, h1, h2, h3, h4, h5, h6 {
+  margin: 0 auto;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* border: solid 2px orange; */
+  color: #183153;
+}
+
+button {
+  cursor: pointer;
+}
+
+#db_nav {
+  position: relative;
+  float: left;
+  height: 100%;
+  width: 25%;
+  left: 0px;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+  display: block;
+  height: 8%;
+  width: 100%;
+  margin: 0 auto;
+  align-content: center;
+  background-color: #f0f1f3;
+}
+
+#db_header {
+  position: relative;
+  width: 86%;
+  margin: 0 auto;
+}
+
+.list {
+  position: relative;
+  height: 92%;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  /* background-color: #f0f1f3; */
+}
+
+.item {
+  /* border: solid 2px orange; */
+  display: flex;
+  height: 80px;
+  width: 86%;
+  margin: 8px auto;
+  /* background-color: #ECEFF1; */
+  background-color: wheat;
+  justify-content: center;
+}
+
+#textual {
+  background-color: green;
+  display: inline;
+  float: left;
+  margin: 8px auto;
+  height: 80%;
+  width: 70%;
+  align-content: space-around;
+}
+
+#actions{
+  background-color: orange;
+  display: inline;
+  float: left;
+  margin: 8px auto;
+  height: 80%;
+  width: 10%;
+  align-content: space-around;
+}
+
+.db_name {
+  border: solid 2px blue;
+  background-color: transparent;
+  display: block;
+  height: 50%;
+  border: none;
+  margin: 0 auto;
+  color: #183153;
+}
+
+.db_status {
+  border: solid 2px red;
+  background-color: transparent;
+  display: block;
+  height: 50%;
+  border: none;
+  margin: 0 auto;
+  color: #183153;
+}
+
+.icon_wifi {
+  color: #183153;
+}
+
+#db_cross_btn {
+  background-color: transparent;
+  display: block;
+  height: 50%;
+  border: none;
+  margin: 0 auto;
+  color: #183153;
+}
+
+#db_connect_disconnect_btn {
+  background-color: transparent;
+  display: block;
+  height: 50%;
+  border: none;
+  margin: 0 auto;
+  color: #183153;
+}
+
+#tables_nav {
+  position: relative;
+  display: flex;
+  float: left;
+  height: 100%;
+  width: 25%;
+  background-color: green;
+  margin: 0 auto;
+}
+
+#fields_nav {
+  position: relative;
+  display: flex;
+  float: left;
+  height: 100%;
+  width: 50%;
+  left: 0px;
+  background-color: blue;
+  margin: 0 auto;
+}
+
+#tbl_list {
+  background-color: darkslateblue;
+  height: 200px;
+  width: 100px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+#flds_list {
+  background-color: darkblue;
+  height: 400px;
+  width: 300px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}

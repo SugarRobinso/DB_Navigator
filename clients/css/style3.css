@@ -1,0 +1,71 @@
+* {
+  scrollbar-width: none;
+}
+
+p {
+  margin: 0 auto;
+}
+
+input[type="button"] {
+  height: 16px;
+  width: 16px;
+  font-size: 8px;
+  text-align: center;
+  padding: 0;
+}
+
+.is-maxh {
+  max-height: 560px;
+}
+
+.is-color {
+  background-color: #183153;
+}
+
+.is-col-red {
+  background-color: red;
+}
+
+.is-col-green {
+  background-color: green;
+}
+
+.is-col-blue {
+  background-color: blue;
+}
+
+.is-col-purple {
+  background-color: purple;
+}
+
+.box {
+  position: relative;
+  display: inline-block;
+  margin: 12px auto;
+  height: 280px;
+  width: 200px;
+  border: solid 2px red;
+  overflow: scroll;
+}
+
+.min-box {
+  border: solid 2px blue;
+  overflow: hidden;
+  border-radius: 6px;
+}
+  
+.title {
+  position: sticky;
+  top: 0px;
+  margin-top: 0;
+  border-radius: 0px;
+  background-color: white;
+}
+
+.add_database {
+  position: relative;
+  bottom: 0;
+  border: solid 2px green;
+  margin-top: 20px;
+  overflow: hidden;
+}

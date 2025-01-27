@@ -1,0 +1,22 @@
+{
+  "routes": {
+    "method": [
+      {
+        "name": "GET",
+        "endpoint":[
+          "database",
+          "table",
+          "record"
+        ]
+      },
+      {
+        "name": "POST",
+        "endpoint":[
+          "database",
+          "table",
+          "record"
+        ]
+      }
+    ]
+  }
+}
