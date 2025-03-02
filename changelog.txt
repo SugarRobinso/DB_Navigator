@@ -1,0 +1,19 @@
+Completed:
+  Client
+    - HTML structure
+    - Basic CSS styling
+    - (WIP) JS for UI and basic functionalities
+    - Test unit
+
+  Server
+    - Docker Compose file
+    - Dockerfile
+    - NginX config
+    - Basic API structure
+    - devTools for creating new routes
+
+New tasks:
+  - Complete and test the API request for the Client
+  - Complete the basic JS functionalities and connect with the api request file
+  - Create basic queries for the Server side
+  - Start documentation about whole project

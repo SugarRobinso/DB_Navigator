@@ -3,6 +3,7 @@ class webGUI {
   updateDatabaseListGUI(dns, username) {
 
     var container = document.createElement("div");
+
     container.setAttribute("id", dns);
     container.classList.add("min-box");
 
@@ -14,6 +15,7 @@ class webGUI {
     rm_db.setAttribute("type", "button");
     rm_db.setAttribute("value", "X");
     rm_db.setAttribute("onclick", "dm.rmItem(\"" + dns + "\", \"" + username + "\")");
+
     conn_db.setAttribute("type", "button");
     conn_db.setAttribute("value", "P");
     conn_db.setAttribute("onclick", "connect()");
@@ -23,9 +25,12 @@ class webGUI {
     
     container.appendChild(item_name);
     item_name.appendChild(db_dns);
+
     container.appendChild(item_status);
     item_status.appendChild(db_status);
+
     container.appendChild(rm_db);
+
     container.appendChild(conn_db);
 
     
@@ -106,7 +111,6 @@ class dataManager {
         if (this.findDB(DNS, Username) < 0) {
 
           var json_str = { DNS, Username, Password };
-          console.log(json_str);
 
           this.listOfDatabases.push(json_str);
           this.updateStorage();
@@ -117,7 +121,8 @@ class dataManager {
         else {
 
           // alert("DB " + dns + " with Username " + username + " already exists");
-          console.log("DB " + DNS + " with Username " + Username + " already exists");
+          if (logger)
+            console.log("DB " + DNS + " with Username " + Username + " already exists");
 
         }
 
@@ -143,7 +148,8 @@ class dataManager {
       else {
 
         // alert("DB " + dbInfo.DNS + " with Username " + dbInfo.Username + " already exists");
-        console.log("DB " + dbInfo.DNS + " with Username " + dbInfo.Username + " already exists");
+        if (logger)
+          console.log("DB " + dbInfo.DNS + " with Username " + dbInfo.Username + " already exists");
 
       }
 
@@ -195,25 +201,15 @@ class dataManager {
 
 dm = new dataManager();
 
-// Adding with command test
-dm.addItem({DNS:"asdsadsad_db_host:dpmfgodmfg_db_name", Username:"asdsadsad", Password:"486234"});
-dm.addItem({DNS:"fdgfdgfdd_db_host:opmdsopmva_db_name", Username:"fdgfdgfdd", Password:"645457"});
-dm.addItem({DNS:"hgjkhjkhj_db_host:poeirpoewk_db_name", Username:"hgjkhjkhj", Password:"123123"});
-dm.addItem({DNS:"qweqweqwe_db_host:qwrenkodqw_db_name", Username:"qweqweqwe", Password:"797897"});
-dm.addItem({DNS:"rtyrtytry_db_host:rtyrtrstrr_db_name", Username:"rtyrtytry", Password:"567373"});
-dm.addItem({DNS:"piopupiiu_db_host:cvbkjbsdks_db_name", Username:"piopupiiu", Password:"098098"});
-
-// Duplicates test
-dm.addItem({DNS:"qweqweqwe_db_host:qwrenkodqw_db_name", Username:"qweqweqwe", Password:"797897"});
-dm.addItem({DNS:"piopupiiu_db_host:cvbkjbsdks_db_name", Username:"piopupiiu", Password:"098098"});
-
-// Removing with command test
-dm.rmItem("rtyrtytry_db_host:rtyrtrstrr_db_name", "rtyrtytry");
-dm.rmItem("qweqweqwe_db_host:qwrenkodqw_db_name", "qweqweqwe");
-
-dm.loadStorage();
-dm.test(1);
-
-// Prints test
-dm.pritItems();
-dm.printStorage();
+// dm.addItem({DNS:"Elenoriana_db_host:Elenoriana_db_name", Username:"Elenoriana", Password:"486234"});
+// dm.addItem({DNS:"Morgandale_db_host:Morgandale_db_name", Username:"Morgandale", Password:"645457"});
+// dm.addItem({DNS:"Giovannina_db_host:Giovannina_db_name", Username:"Giovannina", Password:"123123"});
+// dm.addItem({DNS:"Sebastiano_db_host:Sebastiano_db_name", Username:"Sebastiano", Password:"797897"});
+// dm.addItem({DNS:"Lorenziato_db_host:Lorenziato_db_name", Username:"Lorenziato", Password:"567373"});
+// dm.addItem({DNS:"Alessandra_db_host:Alessandra_db_name", Username:"Alessandra", Password:"098098"});
+// dm.addItem({DNS:"Elenoriana_db_host:Elenoriana_db_name", Username:"Morgandale", Password:"645457"});
+// dm.addItem({DNS:"Morgandale_db_host:Morgandale_db_name", Username:"Sebastiano", Password:"797897"});
+// dm.addItem({DNS:"Giovannina_db_host:Giovannina_db_name", Username:"Alessandra", Password:"098098"});
+// dm.addItem({DNS:"Sebastiano_db_host:Sebastiano_db_name", Username:"Elenoriana", Password:"486234"});
+// dm.addItem({DNS:"Lorenziato_db_host:Lorenziato_db_name", Username:"Giovannina", Password:"123123"});
+// dm.addItem({DNS:"Alessandra_db_host:Alessandra_db_name", Username:"Lorenziato", Password:"567373"});
