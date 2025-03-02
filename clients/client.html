@@ -15,11 +15,12 @@
     <div id="db_box" class="box">
       <h4 class="min-box title">Databases</h4>
       <div class="add_database">
-        <input id="db_host" type="text" value="" placeholder="Host">
-        <input id="db_name" type="text" value="" placeholder="DB Name">
-        <input id="db_user" type="text" value="" placeholder="Username">
-        <input id="db_pass" type="password" value="" placeholder="password">
-        <input type="button" onclick="add_db_item()" value="+">
+        <!-- <input id="db_host" type="text" value="" placeholder="Host">
+        <input id="db_name" type="text" value="" placeholder="DB Name"> -->
+        <input id="db_dns" onload="resetFields()" type="text" value="" placeholder="DNS">
+        <input id="db_user" onload="resetFields()" type="text" value="" placeholder="Username">
+        <input id="db_pass" onload="resetFields()" type="password" value="" placeholder="password">
+        <input type="button" onclick="dm.addItem()" value="+">
       </div>
     </div>
     <div class="box">
@@ -29,7 +30,19 @@
       <h4 class="min-box title">Records</h4>
     </div>
 
+    <script>
+      // For logs output on console
+      logger=true;
+
+      // Resetting the fields
+      window.onload = function() {
+        document.getElementById("db_dns").value = "";
+        document.getElementById("db_user").value = "";
+        document.getElementById("db_pass").value = "";
+      }
+    </script>
     <script src="./js/api_request.js"></script>
     <script src="./js/client.js"></script>
+    <!-- <script src="./js/test-client.js"></script> -->
   </body>
 </html>

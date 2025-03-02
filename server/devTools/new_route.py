@@ -16,28 +16,29 @@ routes_list = list(os.listdir(str(pathlib.Path(__file__).parent.parent) + "/rout
 with open(str(pathlib.Path(__file__).parent.parent) + "/routes/routes.txt", "r") as routes_file:
   for line in routes_file:
     line = line.strip()
-    if line.count('/') == 0 and len(line) > 1:
-      routes_dict[line] = line + ".php"
-      routes_list.remove(routes_dict[line])
-    elif line.count('/') == 1 and len(line) == 1:
-      routes_dict[line] = "index.php"
-      routes_list.remove(routes_dict[line])
-    elif line.count('/') == 1 and len(line) > 1:
-      tmp_line = line.split('/')
-      routes_dict[line] = tmp_line[0] + '_' + tmp_line[1] + ".php"
-      routes_list.remove(routes_dict[line]) 
-    elif line.count('/') > 1 and len(line) > 1:
-      j = 0
-      tmp_line = line.split('/')
-      tmp_name = ""
+    if line.count('#') != 1:
+      if line.count('/') == 0 and len(line) > 1:
+        routes_dict[line] = line + ".php"
+        routes_list.remove(routes_dict[line])
+      elif line.count('/') == 1 and len(line) == 1:
+        routes_dict[line] = "index.php"
+        routes_list.remove(routes_dict[line])
+      elif line.count('/') == 1 and len(line) > 1:
+        tmp_line = line.split('/')
+        routes_dict[line] = tmp_line[0] + '_' + tmp_line[1] + ".php"
+        routes_list.remove(routes_dict[line]) 
+      elif line.count('/') > 1 and len(line) > 1:
+        j = 0
+        tmp_line = line.split('/')
+        tmp_name = ""
 
-      for j in range(len(tmp_line)):
-        tmp_name += tmp_line[j]
-        if j < len(tmp_line) - 1:
-          tmp_name += "_"
+        for j in range(len(tmp_line)):
+          tmp_name += tmp_line[j]
+          if j < len(tmp_line) - 1:
+            tmp_name += "_"
 
-      routes_dict[line] = tmp_name + ".php"
-      routes_list.remove(routes_dict[line])
+        routes_dict[line] = tmp_name + ".php"
+        routes_list.remove(routes_dict[line])
 
 # Sort names alphabetically
 routes_dict = dict(sorted(routes_dict.items()))

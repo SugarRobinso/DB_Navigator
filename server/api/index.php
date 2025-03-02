@@ -10,20 +10,36 @@
   //   error_reporting(E_ALL);
   // }
 
+  // Content-Type appears in the form type/subtype[;parameter=value]
+  // and can be: application, audio, example, font, image, model, text, video
+  // some commons subtypes can be found in these links:
+  // application: https://www.iana.org/assignments/media-types/media-types.xhtml#application
+  // audio: https://www.iana.org/assignments/media-types/media-types.xhtml#audio
+  // font: https://www.iana.org/assignments/media-types/media-types.xhtml#font
+  // image: https://www.iana.org/assignments/media-types/media-types.xhtml#image
+  // model: https://www.iana.org/assignments/media-types/media-types.xhtml#model
+  // text: https://www.iana.org/assignments/media-types/media-types.xhtml#text
+  // video: https://www.iana.org/assignments/media-types/media-types.xhtml#video
+
+
+  // Header necessary for cross origin connection  
+  header("Access-Control-Allow-Headers:Content-Type,Access-Control-Allow-Headers,Authorization,X-Requested-With");
+  header("Access-Control-Allow-Methods:POST");
+  header("Access-Control-Allow-Origin:*");
+  // header("Content-Type:Application/JSON;charset=UTF-8");
+  header("Content-Type:text/plain;charset=UTF-8");
+  header("Access-Control-Allow-Headers:X-Requested-With");
+
   require_once "router.php";
 
   $routes_file = fopen("../routes/routes.txt", "r");
   $routes_list = [];
-  $routes_req = [];
 
   if ($routes_file) {
     while(($line = fgets($routes_file)) !== false) {
+      // Skip commented lines
       if($line[0] != "#") {
-        // $new_route = explode(" ", $line);
-        // $routes_list[$new_route[0]] = $new_route[1];
         array_push($routes_list, trim($line));
-        // array_push($routes_list, $new_route[0]);
-        // array_push($routes_req, $new_route[1]);
       }
     }
   }
@@ -33,64 +49,13 @@
 
   fclose($routes_file);
 
-  // echo count($routes_list) . "<br>";
-  // echo count($routes_req) . "<br>";
-
-  // var_dump($routes_list);
-  // echo  "<br>";
-  // var_dump($routes_req);
-  // echo  "<br>";
-
-  // for ($i=0; $i < count($routes_req); $i++) { 
-  //   require_once "routes/" . $routes_req[$i];
-  // }
-
   $callback = [];
-  // array_push($callback, function() {
-  //   return "testing callable 1<br>";
-  // });
-  // array_push($callback, function() {
-  //   return "testing callable 2<br>";
-  // });
 
   require_once "../routes/autoload.php";
-  // var_dump($callback[0]);
 
   for ($i=0; $i < count($routes_list); $i++) { 
     route($routes_list[$i], $callback[$i]);
   }
-  
-  // route('/', $callback[0]);
-  // route('/', $callback[1]);
-  // route('/', $callback[2]);
-
-  // route('/', function(){
-  //   return "INDEX PAGE";
-  //   // phpinfo();
-  // });
-
-  // route('select/database', function(){
-  //   return "Selected DB";
-  // });
-
-  // route('select/table', function(){
-  //   return "Selected Table";
-  // });
-
-  // route('select/record', function(){
-  //   return "Selected Record";
-  // });
-
-  // route('select', function(){
-  //   return "Selected";
-  // });
-
-
-  // route('delete', function(){
-  //   // return "DELETE PAGE";
-  //   $_SESSION["request"] = $_SERVER['REQUEST_URI'];
-  //   header("location:test.php");
-  // });
 
   $action = $_SERVER['REQUEST_URI'];
 
